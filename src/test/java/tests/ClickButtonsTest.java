@@ -1,20 +1,21 @@
 package tests;
 
-import pageObject.MainPage;
+import page_object.MainPage;
 import org.junit.Test;
-import pageObject.PersonDataFillingPage;
+import page_object.PersonDataFillingPage;
 
 import static org.junit.Assert.assertEquals;
 
-public class ClickButtonsTest extends BaseTest {
+public class ClickButtonsTest extends BaseTest{
 
     private final String expectedPageTitle = "Для кого самокат";
-
     @Test
     public void clickTopButton() {
-
         MainPage mainPage = new MainPage(driver);
         PersonDataFillingPage personDataFillingPage = new PersonDataFillingPage(driver);
+
+        mainPage.enterPage();
+        mainPage.clickCookieButton();
         mainPage.clickTopOrderButton();
         personDataFillingPage.getPageTitle();
 
@@ -28,10 +29,11 @@ public class ClickButtonsTest extends BaseTest {
     @Test
     public void clickBottomButton() {
 
-
-
         MainPage mainPage = new MainPage(driver);
         PersonDataFillingPage personDataFillingPage = new PersonDataFillingPage(driver);
+
+        mainPage.enterPage();
+        mainPage.clickCookieButton();
         mainPage.clickBottomOrderButton();
         String actualPageTitle = personDataFillingPage.getPageTitle();
 
@@ -39,5 +41,4 @@ public class ClickButtonsTest extends BaseTest {
 
 
     }
-
 }

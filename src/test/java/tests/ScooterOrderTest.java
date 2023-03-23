@@ -1,8 +1,9 @@
 package tests;
 
-import pageObject.AboutRentPage;
-import pageObject.MainPage;
-import pageObject.PersonDataFillingPage;
+import org.openqa.selenium.WebDriver;
+import page_object.AboutRentPage;
+import page_object.MainPage;
+import page_object.PersonDataFillingPage;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -18,7 +19,6 @@ import org.junit.runners.Parameterized;
     private String rentDuration;
     private String scooterColour;
     private String commentForDeliveryMan;
-
 
     public ScooterOrderTest(String nameField, String surnameField, String addressField,
                                   String metroStationSelect, String phoneNumberField,String deliveryDate, String rentDuration,String scooterColour, String commentForDeliveryMan) {
@@ -47,6 +47,8 @@ import org.junit.runners.Parameterized;
             PersonDataFillingPage personDataFillingPage = new PersonDataFillingPage(driver);
             AboutRentPage aboutRentPage = new AboutRentPage(driver);
 
+            mainPage.enterPage();
+            mainPage.clickCookieButton();
             mainPage.clickTopOrderButton();
             personDataFillingPage.getPageTitle();
 
@@ -65,7 +67,7 @@ import org.junit.runners.Parameterized;
             aboutRentPage.setCommentForDeliveryMan(commentForDeliveryMan);
 
             aboutRentPage.clickOrderButtonInsideOfForm();
-            aboutRentPage.isOrderConfirmationModalWindowVisible();
+            aboutRentPage.checkOrderConfirmationModalWindowAppeared();
             aboutRentPage.checkConfirmationWindow();
 
         }

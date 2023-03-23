@@ -1,23 +1,19 @@
 package tests;
 
-
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import pageObject.MainPage;
+import page_object.MainPage;
 import org.junit.Assert;
 import org.junit.Test;
 
 @RunWith(Parameterized.class)
 public class TopicalIssuesUnitTest extends BaseTest {
-
     private int index;
     private String expectedResult;
-
 
     public TopicalIssuesUnitTest (int index,String expectedResult){
     this.index = index;
     this.expectedResult = expectedResult;
-
     }
 
     @Parameterized.Parameters
@@ -39,6 +35,9 @@ public class TopicalIssuesUnitTest extends BaseTest {
     @Test
     public void checkOfDropdown() throws InterruptedException {
         MainPage mainPage = new MainPage(driver);
+
+        mainPage.enterPage();
+        mainPage.clickCookieButton();
         mainPage.clickCursorArrowOfDropdown1(index);
         Thread.sleep(1000);
         String actualDropdownText = mainPage.getDropdownText1(index);

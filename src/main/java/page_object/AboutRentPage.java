@@ -1,4 +1,4 @@
-package pageObject;
+package page_object;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -6,7 +6,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 public class AboutRentPage {
-
     private final WebDriver driver;
 
     //Заголовок страницы Для кого самокат
@@ -37,10 +36,9 @@ public class AboutRentPage {
     private static final By ORDER_CONFIRMATION_MODAL_WINDOW =
             By.cssSelector(".Order_ModalHeader__3FDaJ");
 
-    //Окно подтверждения заказа
-    private static final By CONFIRMATION_ORDER_WINDOW =
-            By.xpath("//div[text(),'Заказ оформлен'");
-
+    //Окно с номером заказа
+    private static final By ORDER_NUMBER_WINDOW =
+            By.cssSelector(".Order_ModalHeader__3FDaJ");
 
     public AboutRentPage(WebDriver driver) {
         this.driver = driver;
@@ -68,7 +66,7 @@ public class AboutRentPage {
 
     //Выбрать цвет самоката
     public void chooseScooterColour(String colour) {
-//        driver.findElement(SCOOTER_COLOUR_SELECTION).click();
+        driver.findElement(SCOOTER_COLOUR_SELECTION).click();
         String colorScooterFieldOption = "//*[@id='%s']";
         String colorLocator = String.format(colorScooterFieldOption, colour);
         driver.findElement(By.xpath(colorLocator)).click();
@@ -85,11 +83,11 @@ public class AboutRentPage {
     }
 
     //Проверить появление окна подтверждения заказа с кнопкой Да
-    public void isOrderConfirmationModalWindowVisible() {
+    public void checkOrderConfirmationModalWindowAppeared() {
         driver.findElement(ORDER_CONFIRMATION_MODAL_WINDOW).getText();
     }
-
+    //Проверка отображения окна с номером заказа
     public void checkConfirmationWindow(){
-        driver.findElement(CONFIRMATION_ORDER_WINDOW).getText();
+        driver.findElement(ORDER_NUMBER_WINDOW).getText();
     }
 }
