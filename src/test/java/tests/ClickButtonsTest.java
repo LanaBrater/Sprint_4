@@ -3,11 +3,9 @@ package tests;
 import page_object.MainPage;
 import org.junit.Test;
 import page_object.PersonDataFillingPage;
-
 import static org.junit.Assert.assertEquals;
 
 public class ClickButtonsTest extends BaseTest{
-
     private final String expectedPageTitle = "Для кого самокат";
     @Test
     public void clickTopButton() {
@@ -22,8 +20,6 @@ public class ClickButtonsTest extends BaseTest{
         String actualPageTitle = personDataFillingPage.getPageTitle();
 
         assertEquals("Titles are not equal", expectedPageTitle, actualPageTitle);
-
-
     }
 
     @Test
@@ -38,7 +34,5 @@ public class ClickButtonsTest extends BaseTest{
         String actualPageTitle = personDataFillingPage.getPageTitle();
 
         assertEquals("Titles are not equal", expectedPageTitle, actualPageTitle);
-
-
     }
 }

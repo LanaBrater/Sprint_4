@@ -32,9 +32,9 @@ public class AboutRentPage {
     private static final By ORDER_BUTTON_INSIDE_OF_FORM =
             By.xpath("//div[@class='Order_Buttons__1xGrp']/button[2]");
 
-    //Всплывающее окно подтверждения заказа с кнопкой Да
-    private static final By ORDER_CONFIRMATION_MODAL_WINDOW =
-            By.cssSelector(".Order_ModalHeader__3FDaJ");
+    //Кнопка Да в окне оформления заказа
+    private static final By YES_BUTTON_IN_ORDER_CONFIRMATION_WINDOW =
+            By.xpath("//div/button[text()='Да']");
 
     //Окно с номером заказа
     private static final By ORDER_NUMBER_WINDOW =
@@ -82,12 +82,12 @@ public class AboutRentPage {
         driver.findElement(ORDER_BUTTON_INSIDE_OF_FORM).click();
     }
 
-    //Проверить появление окна подтверждения заказа с кнопкой Да
-    public void checkOrderConfirmationModalWindowAppeared() {
-        driver.findElement(ORDER_CONFIRMATION_MODAL_WINDOW).getText();
+    //Нажать на кнопку Да
+    public void clickYesButton() {
+        driver.findElement(YES_BUTTON_IN_ORDER_CONFIRMATION_WINDOW).click();
     }
     //Проверка отображения окна с номером заказа
-    public void checkConfirmationWindow(){
-        driver.findElement(ORDER_NUMBER_WINDOW).getText();
+    public String checkConfirmationWindow(){
+       return driver.findElement(ORDER_NUMBER_WINDOW).getText();
     }
 }

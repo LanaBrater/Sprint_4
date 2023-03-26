@@ -11,18 +11,15 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 
 public class BaseTest {
-    WebDriver driver;
+   WebDriver driver;
 
     @Before
     public void beforeTest() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origin");
-        driver = new ChromeDriver(options);
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
 
-//        FirefoxOptions options = new FirefoxOptions();
-//        options.addArguments("--remote-allow-origin");
+//        WebDriverManager.firefoxdriver().setup();
 //        driver = new FirefoxDriver();
-
     }
 
     @After

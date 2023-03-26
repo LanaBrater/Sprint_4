@@ -70,5 +70,4 @@ public class MainPage {
     public String getDropdownText1(int index){
         return driver.findElement(By.xpath(answerArrowFields[index])).getText();
     }
-
 }
