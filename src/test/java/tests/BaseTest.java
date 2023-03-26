@@ -11,7 +11,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 
 public class BaseTest {
-   WebDriver driver;
+   protected WebDriver driver;
 
     @Before
     public void beforeTest() {
@@ -23,7 +23,7 @@ public class BaseTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 }
